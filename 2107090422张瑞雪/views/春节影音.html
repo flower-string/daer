@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>春节影音</title>
+  <!-- 页面初始化 -->
+  <link rel="stylesheet" href="../css/base.css">
+  <!-- 共有的css -->
+  <link rel="stylesheet" href="../css/common.css">
+  <!-- 侧边导航栏的css -->
+  <link rel="stylesheet" href="../css/aside.css">
+    <!-- 春节影音页面的css -->
+    <link rel="stylesheet" href="../css/春节影音.css">
+  <!-- less编译工具 -->
+  <script src="https://cdn.jsdelivr.net/npm/less@4"></script>
+  <!-- 引入vue -->
+  <script src="https://unpkg.com/vue@2"></script>
+  <!-- 引入element-ui -->
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+</head>
+<body>
+  <!-- 整个盒子被vue控制，
+    vue是渐进式的，能让你学多少用多少，各个功能独立互不影响 -->
+  <div id="app">
+    <!-- 布局容器，构建整体布局 -->
+    <el-container>
+      <!-- 头部：制作导航栏 -->
+      <el-header>
+        <nav>
+          <div class="active"><a href="">春节</a></div>
+          <div><a href="../../2107090412袁晓楠/index.html">清明节</a></div>
+          <div><a href="../../2107090422张瑞雪/index.html">端午节</a></div>
+          <div><a href="../../2107090411刘敬超/index.html">中秋节</a></div>
+          <div><a href="../../index.html">其它节日</a></div>
+        </nav>
+      </el-header>
+      <!-- 主体内容：也是各个页面不同的地方 -->
+      <el-main>
+        <div class="left-box">
+          <ul>
+            <li v-for="(item,index) in aside" :class="index === 2 ? 'active' : ''">
+              <a :href="item.href">{{ item.label }}</a>
+            </li>
+            <hr>
+            <li class="end"><a href="../index.html">首页</a></li>
+            <li><a href="./登录.html">登录</a></li>
+          </ul>
+        </div>
+
+        <div class="right-box">
+          <div class="container">
+            <div class="item active" v-for="item in vlogs">
+                <img :src="item.img" alt="">
+                <div class="shadow"></div>
+                <div class="content">
+                  <div class="icon">
+                    <a :href="item.href" target="_blank">
+                      <i class="fa">▶</i>
+                    </a>
+                  </div>
+                  <div class="text">
+                    <div class="tit">{{ item.h }}</div>
+                    <div class="sub">{{ item.p }}</div>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </el-main>
+      <!-- 尾部：小组信息，练习方式，鸣谢等 -->
+      <footer>
+        <div v-for="item in footer" :key="item.label">
+          <div>
+            {{ item.label }}
+          </div>
+          <div>
+            {{ item.text }}
+          </div>
+        </div>
+      </footer>
+    </el-container>
+  </div>
+  <!-- 构建vue模板管理页面 -->
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        footer: [
+          {label:'小组成员', text: '张连博、刘敬超、袁晓楠、闫启慧、张瑞雪'},
+          {label:'指导教师', text: '白云飞老师'},
+          {label:'技术栈', text: 'html、css、javascript、vue'},
+          {label:'组件库', text: 'element-ui、艾恩小灰灰'},
+        ],
+        aside: [
+          {href: './传说故事.html', label: '传说故事'},
+          {href: './美食佳肴.html', label: '美食佳肴'},
+          {href: './春节影音.html', label: '春节影音'},
+          {href: './节日民俗.html', label: '节日民俗'},
+          {href: './访谈意义.html', label: '访谈意义'},
+          {href: './春节趣事.html', label: '春节趣事'},
+          {href: './春节文化.html', label: '春节文化'},
+          {href: './各地活动.html', label: '各地活动'},
+          {href: './春节美图.html', label: '春节美图'},
+        ],
+        vlogs: [
+          {img: '../assets/image/春节序曲.png', h: '【春节序曲】', p: '听了这首歌，年就来了！',href: 'https://www.bilibili.com/video/BV1bo4y1d7Bk?spm_id_from=333.337.search-card.all.click&vd_source=0c86d2822eb4ebce76a0ac8b4b2c00dd&t=73.7'},
+          {img: '../assets/image/时光机.png', h: '时光机', p: '5分钟看36年精彩春晚凝聚几代人的春节记忆', href: 'https://www.bilibili.com/video/BV12U4y1N79X?spm_id_from=333.337.search-card.all.click&vd_source=0c86d2822eb4ebce76a0ac8b4b2c00dd&t=273.6'},
+          {img: '../assets/image/春节在国外受欢迎.png', h: '春节在国外有多受欢迎？', p: '多国设立法定节日，这才叫中国文化输出！',href: 'https://www.bilibili.com/video/BV1qa41117Ur?spm_id_from=333.337.search-card.all.click&vd_source=0c86d2822eb4ebce76a0ac8b4b2c00dd&t=20.7'},
+          {img: '../assets/image/有年有味.png', h: '【有年有味】', p: '四川卫视2021春节特别节目完整版',href: 'https://www.bilibili.com/video/BV1eK4y1N7JK?spm_id_from=333.337.search-card.all.click&vd_source=0c86d2822eb4ebce76a0ac8b4b2c00dd&t=2.4'},
+          {img: '../assets/image/扶不扶.png', h: '搞笑小品——沈腾《扶不扶》', p: '扶之前是不是依然会考虑扶不扶？',href: 'https://www.bilibili.com/video/BV1Jd4y1d7KR?spm_id_from=333.337.search-card.all.click&vd_source=0c86d2822eb4ebce76a0ac8b4b2c00dd&t=20.6'}
+        ]
+      },
+      methods: {
+        
+      },
+      components: {
+        
+      },
+      watch: {
+        
+      },
+      computed: {
+      
+      }
+    })
+  </script>
+  <script src="../js/春节影音.js"></script>
+</body>
+</html>

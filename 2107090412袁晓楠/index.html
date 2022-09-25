@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>中秋节首页</title>
+  <!-- 页面初始化 -->
+  <link rel="stylesheet" href="./css/base.css">
+  <!-- 共有的css -->
+  <link rel="stylesheet" href="./css/common.css">
+  <!-- 首页的css -->
+  <link rel="stylesheet" href="./css/index.css">
+  <!-- less编译工具 -->
+  <script src="https://cdn.jsdelivr.net/npm/less@4"></script>
+  <!-- 引入vue -->
+  <script src="https://unpkg.com/vue@2"></script>
+  <!-- 引入element-ui -->
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+</head>
+<body>
+  <!-- 整个盒子被vue控制，
+    vue是渐进式的，能让你学多少用多少，各个功能独立互不影响 -->
+  <div id="app">
+    <!-- 布局容器，构建整体布局 -->
+    <el-container>
+      <!-- 头部：制作导航栏 -->
+      <el-header>
+        <nav>
+          <div><a href="../2107090422张瑞雪/index.html">春节</a></div>
+          <div class="active"><a href="../2107090412袁晓楠/index.html">清明节</a></div>
+          <div><a href="../2107090420闫启慧/index.html">端午节</a></div>
+          <div><a href="../2107090411刘敬超/index.html">中秋节</a></div>
+          <div><a href="../index.html">其它节日</a></div>
+        </nav>
+      </el-header>
+      <!-- 主体内容：也是各个页面不同的地方 -->
+      <el-main>
+        <a v-for="item in card" :href="item.href">
+          <div class="item" >
+            <div class="img"><img :src="item.url" alt=""></div>
+            <div class="caption">
+                <h3>{{ item.h }}</h3>
+                <p>{{ item.p }}</p>
+            </div>
+          </div>
+        </a>
+      </el-main>
+      <!-- 尾部：小组信息，练习方式，鸣谢等 -->
+      <footer>
+        <div v-for="item in footer" :key="item.label">
+          <div>
+            {{ item.label }}
+          </div>
+          <div>
+            {{ item.text }}
+          </div>
+        </div>
+      </footer>
+    </el-container>
+  </div>
+  <!-- 引入数据文件 -->
+  <script src="./js/db.js"></script>
+  <!-- 构建vue模板管理页面 -->
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        footer,
+        card
+      },
+    })
+  </script>
+</body>
+</html>

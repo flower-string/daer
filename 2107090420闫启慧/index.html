@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>端午节首页</title>
+  <!-- 页面初始化 -->
+  <link rel="stylesheet" href="../2107090420闫启慧/css/base.css">
+  <!-- 共有的css -->
+  <link rel="stylesheet" href="../2107090420闫启慧/css/common.css">
+  <!-- 首页的css -->
+  <link rel="stylesheet" href="../2107090420闫启慧/css/index.css">
+  <!-- less编译工具 -->
+  <script src="https://cdn.jsdelivr.net/npm/less@4"></script>
+  <!-- 引入vue -->
+  <script src="https://unpkg.com/vue@2"></script>
+  <!-- 引入element-ui -->
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+</head>
+<body>
+  <!-- 整个盒子被vue控制，
+    vue是渐进式的，能让你学多少用多少，各个功能独立互不影响 -->
+  <div id="app">
+    <!-- 布局容器，构建整体布局 -->
+    <el-container>
+      <!-- 头部：制作导航栏 -->
+      <el-header>
+        <nav>
+          <div><a href="../2107090422张瑞雪/index.html">春节</a></div>
+          <div><a href="../2107090412袁晓楠/index.html">清明节</a></div>
+          <div class="active"><a href="#">端午节</a></div>
+		      <div><a href="../2107090411刘敬超/index.html">中秋节</a></div>
+          <div><a href="../index.html">其它节日</a></div>
+        </nav>
+      </el-header>
+      <!-- 主体内容：也是各个页面不同的地方 -->
+      <el-main>
+        <a v-for="item in card" :href="item.href">
+          <div class="item" >
+            <div class="img"><img :src="item.url" alt=""></div>
+            <div class="caption">
+                <h3>{{ item.h }}</h3>
+                <p>{{ item.p }}</p>
+            </div>
+          </div>
+        </a>
+      </el-main>
+      <!-- 尾部：小组信息，练习方式，鸣谢等 -->
+      <footer>
+        <div v-for="item in footer" :key="item.label">
+          <div>
+            {{ item.label }}
+          </div>
+          <div>
+            {{ item.text }}
+          </div>
+        </div>
+      </footer>
+    </el-container>
+  </div>
+  <!-- 构建vue模板管理页面 -->
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        footer: [
+          {label: '小组成员', text: '张连博、刘敬超、袁晓楠、闫启慧、张瑞雪'},
+          {label: '指导教师', text: '白云飞老师'},
+          {label: '技术栈', text: 'html、css、javascript、vue'},
+          {label: '组件库', text: 'element-ui、艾恩小灰灰'},
+        ],
+        card:[
+          {href: './views/概述.html', url: 'https://img1.baidu.com/it/u=2130905396,472753693&fm=253&fmt=auto&app=138&f=JPEG?w=755&h=500', h: '概述', p: '端午节的概述，端午节的别名、时间、节日意义，你都知道多少呢？一起来看看吧。'},
+          {href: './views/起源.html', url: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Finews.gtimg.com%2Fnewsapp_bt%2F0%2F14929416585%2F641&refer=http%3A%2F%2Finews.gtimg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1666172213&t=765253e27cfce58da1625343864aa0db', h: '起源', p: '端午节最初是如何形成的，端午起源于什么，有什么作用。在这里你可能会发现很多不知道的哦~'},
+          {href: './views/典故.html', url: 'https://img0.baidu.com/it/u=469074558,1588619875&fm=253&fmt=auto&app=120&f=JPEG?w=640&h=360', h: '典故', p: '介绍了端午节的典故、神话故事、纪念人物，你都知道多少呢？一起来看看吧。'},
+          {href: './views/插画.html', url: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fwww.gd-uku.com%2FUpload%2FImages%2F2019%25E8%258A%2582%25E6%2597%25A5%25E5%259B%25BE%25E7%2589%2587%2F%25E7%25AB%25AF%25E5%258D%2588%25E8%258A%2582%2F%25E5%2588%2592%25E9%25BE%2599%25E8%2588%259F.jpg&refer=http%3A%2F%2Fwww.gd-uku.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1666089933&t=83a31fcf01ca85852f1f669307042bcb', h: '插画', p: '画师齐聚，精美的端午插画供您欣赏，粽子、龙舟和屈原 可以被画成什么样子呢？'},
+          {href: './views/美食.html', url: 'https://pics4.baidu.com/feed/1c950a7b02087bf4836478ae1265f72410dfcf28.jpeg?token=8fb10091b8153666804670605aea7e0a', h: '美食', p: '端午节吃粽子？你还吃过哪些好吃的呢？你会做哪些端午的美食？一起来做个馋虫！！'},
+          {href: './views/活动.html', url: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2Fa74f4f785c36641aa0f6dfb7bd5aa8892e77ee1939b36-0ublxL_fw658&refer=http%3A%2F%2Fhbimg.b0.upaiyun.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1666171998&t=965bd355539bcdcfa47cce0c8b66eae7', h: '活动', p: '端午节有什么有趣的活动呢，人们如何庆祝端午节，在这里一起感受传统民俗吧~'},
+          {href: './views/诗歌.html', url: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F019f995784a80e0000018c1bf4a4d7.jpg%401280w_1l_2o_100sh.jpg&refer=http%3A%2F%2Fimg.zcool.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1666180121&t=438e7ec741290700ff198e7efc03d265', h: '诗歌', p: '一起来品鉴诗人眼里的端午吧，相信我，你也可以在诗中发现更美的远方。'},
+          {href: './views/vlog.html', url: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fwww.chnlib.com%2FFileUpload%2F2021-06%2F2021-0620212ltwh3fyiwn-11&refer=http%3A%2F%2Fwww.chnlib.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1666180061&t=548b633e623dbca5103af8a2dabad8e8', h: 'vlog', p: '疫情限制了你的行动？不要慌，我们来看看别人是怎么过端午的。我看了=我也过了'},
+        ]
+      },
+      methods: {
+        
+      },
+      components: {
+        
+      },
+      watch: {
+        
+      },
+      computed: {
+      
+      }
+    })
+  </script>
+</body>
+</html>

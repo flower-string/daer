@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>端午节活动</title>
+  <!-- 页面初始化 -->
+  <link rel="stylesheet" href="../css/base.css">
+  <!-- 共有的css -->
+  <link rel="stylesheet" href="../css/common.css">
+  <!-- 侧边导航栏的css -->
+  <link rel="stylesheet" href="../css/aside.css">
+  <!-- 美食页面的css -->
+  <link rel="stylesheet" href="../css/美食.css">
+  <!-- less编译工具 -->
+  <script src="https://cdn.jsdelivr.net/npm/less@4"></script>
+  <!-- 引入vue -->
+  <script src="https://unpkg.com/vue@2"></script>
+  <!-- 引入element-ui -->
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+</head>
+<body>
+  <!-- 整个盒子被vue控制，
+    vue是渐进式的，能让你学多少用多少，各个功能独立互不影响 -->
+  <div id="app">
+    <!-- 布局容器，构建整体布局 -->
+    <el-container>
+      <!-- 头部：制作导航栏 -->
+      <el-header>
+        <nav>
+          <div><a href="../../2107090422张瑞雪/index.html">春节</a></div>
+          <div><a href="../../2107090412袁晓楠/index.html">清明节</a></div>
+          <div class="active"><a href="#">端午节</a></div>
+		      <div><a href="../../2107090411刘敬超/index.html">中秋节</a></div>
+          <div><a href="../../index.html">其它节日</a></div>
+        </nav>
+      </el-header>
+      <!-- 主体内容：也是各个页面不同的地方 -->
+      <el-main>
+        <div class="left-box">
+          <ul>
+            <li v-for="(item,index) in aside" :class="index === 5 ? 'active' : ''">
+              <a :href="item.href">{{ item.label }}</a>
+            </li>
+            <hr>
+            <li class="end"><a href="../index.html">首页</a></li>
+            <li><a href="../views/登录.html">登录</a></li>
+          </ul>
+        </div>
+
+        <div class="right-box">
+          <div class="container">
+            <div class="big-box">
+              <img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2Fa74f4f785c36641aa0f6dfb7bd5aa8892e77ee1939b36-0ublxL_fw658&refer=http%3A%2F%2Fhbimg.b0.upaiyun.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1666171998&t=965bd355539bcdcfa47cce0c8b66eae7" alt="">
+            </div>
+            <div class="small-box">
+                <div class="img active">
+                  <img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2Fa74f4f785c36641aa0f6dfb7bd5aa8892e77ee1939b36-0ublxL_fw658&refer=http%3A%2F%2Fhbimg.b0.upaiyun.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1666171998&t=965bd355539bcdcfa47cce0c8b66eae7" alt="">
+                </div>
+                <div class="img">
+                  <img src="https://pics5.baidu.com/feed/b21bb051f8198618af79f5572ca1f0758ad4e6fe.jpeg?token=62265fcb0fb49d654b8c4c166bf4f51b" alt="">
+                </div>
+                <div class="img">
+                  <img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Finews.gtimg.com%2Fnewsapp_bt%2F0%2F14929416585%2F641&refer=http%3A%2F%2Finews.gtimg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1666172213&t=765253e27cfce58da1625343864aa0db" alt="">
+                </div>
+                <div class="img">
+                  <img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fp1.itc.cn%2Fq_70%2Fimages03%2F20210613%2F244963f487d7482ab1ee4cb9b0bffd69.png&refer=http%3A%2F%2Fp1.itc.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1666172277&t=4037a125d3c1e9edd057354f95e0dad4" alt="">
+                </div>
+                <div class="img">
+                  <img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fm1-1253159997.image.myqcloud.com%2FimageDir%2F710dbe7fe0d30e2c4509d3eeb7bc6c74.jpg&refer=http%3A%2F%2Fm1-1253159997.image.myqcloud.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1666172329&t=0f08ed4108b3a64302b0bcd4b6e0727e" alt="">
+                </div>
+            </div>
+          </div>
+          <div id="text">
+            <h1>赛龙舟</h1>
+            <p>赛龙舟是多人集体划桨竞赛，是古代龙图腾祭祀的节仪，乃遗俗也。是端午节的一项重要活动，至今在我国南方沿海一带仍十分流行，传出国外后深受各国人民的喜爱，并形成了国际比赛。端午有龙舟，也有凤舟，凤舟是源于远古的乌舟，有的地方还有龙凤船。赛龙舟是民间信仰中龙崇拜的一种形式，即要借龙之神威祈福辟邪。</p>
+          </div>
+        </div>
+      </el-main>
+      <!-- 尾部：小组信息，练习方式，鸣谢等 -->
+      <footer>
+        <div v-for="item in footer" :key="item.label">
+          <div>
+            {{ item.label }}
+          </div>
+          <div>
+            {{ item.text }}
+          </div>
+        </div>
+      </footer>
+    </el-container>
+  </div>
+  <!-- 构建vue模板管理页面 -->
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        footer: [
+          {label:'小组成员', text: '张连博、刘敬超、袁晓楠、闫启慧、张瑞雪'},
+          {label:'指导教师', text: '白云飞老师'},
+          {label:'技术栈', text: 'html、css、javascript、vue'},
+          {label:'组件库', text: 'element-ui、艾恩小灰灰'},
+        ],
+        aside: [
+          {href: './概述.html', label: '概述'},
+          {href: './起源.html', label: '起源'},
+          {href: './典故.html', label: '典故'},
+          {href: './插画.html', label: '插画'},
+          {href: './美食.html', label: '美食'},
+          {href: './活动.html', label: '活动'},
+          {href: './诗歌.html', label: '诗歌'},
+          {href: './vlog.html', label: 'vlog'},
+        ]
+      },
+      methods: {
+        
+      },
+      components: {
+        
+      },
+      watch: {
+        
+      },
+      computed: {
+      
+      }
+    })
+  </script>
+  <script src="../js/活动.js"></script>
+</body>
+</html>

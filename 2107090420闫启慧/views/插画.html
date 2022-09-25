@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>端午节插画</title>
+  <!-- 页面初始化 -->
+  <link rel="stylesheet" href="../css/base.css">
+  <!-- 共有的css -->
+  <link rel="stylesheet" href="../css/common.css">
+  <!-- 侧边导航栏的css -->
+  <link rel="stylesheet" href="../css/aside.css">
+  <!-- less编译工具 -->
+  <script src="https://cdn.jsdelivr.net/npm/less@4"></script>
+  <!-- 引入vue -->
+  <script src="https://unpkg.com/vue@2"></script>
+  <!-- 引入element-ui -->
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+</head>
+<body>
+  <!-- 整个盒子被vue控制，
+    vue是渐进式的，能让你学多少用多少，各个功能独立互不影响 -->
+  <div id="app">
+    <!-- 布局容器，构建整体布局 -->
+    <el-container>
+      <!-- 头部：制作导航栏 -->
+      <el-header>
+        <nav>
+          <div><a href="../../2107090422张瑞雪/index.html">春节</a></div>
+          <div><a href="../../2107090412袁晓楠/index.html">清明节</a></div>
+          <div class="active"><a href="#">端午节</a></div>
+		      <div><a href="../../2107090411刘敬超/index.html">中秋节</a></div>
+          <div><a href="../../index.html">其它节日</a></div>
+        </nav>
+      </el-header>
+      <!-- 主体内容：也是各个页面不同的地方 -->
+      <el-main>
+        <div class="left-box">
+          <ul>
+            <li v-for="(item,index) in aside" :class="index === 3 ? 'active' : ''">
+              <a :href="item.href">{{ item.label }}</a>
+            </li>
+            <hr>
+            <li class="end"><a href="../index.html">首页</a></li>
+            <li><a href="../views/登录.html">登录</a></li>
+          </ul>
+        </div>
+        <div style="width: 70vw;margin-left: 5vw;margin-top: 2.5vh;">
+          <el-carousel :interval="4000" type="card" height="60vh">
+            <el-carousel-item v-for="(item,index) in pic" :key="item" :label="index + 1">
+              <img :src="item"></img>
+            </el-carousel-item>
+          </el-carousel>
+        </div>
+      </el-main>
+      <!-- 尾部：小组信息，练习方式，鸣谢等 -->
+      <footer>
+        <div v-for="item in footer" :key="item.label">
+          <div>
+            {{ item.label }}
+          </div>
+          <div>
+            {{ item.text }}
+          </div>
+        </div>
+      </footer>
+    </el-container>
+  </div>
+  <!-- 构建vue模板管理页面 -->
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        footer: [
+          {label:'小组成员', text: '张连博、刘敬超、袁晓楠、闫启慧、张瑞雪'},
+          {label:'指导教师', text: '白云飞老师'},
+          {label:'技术栈', text: 'html、css、javascript、vue'},
+          {label:'组件库', text: 'element-ui、艾恩小灰灰'},
+        ],
+        aside: [
+          {href: './概述.html', label: '概述'},
+          {href: './起源.html', label: '起源'},
+          {href: './典故.html', label: '典故'},
+          {href: './插画.html', label: '插画'},
+          {href: './美食.html', label: '美食'},
+          {href: './活动.html', label: '活动'},
+          {href: './诗歌.html', label: '诗歌'},
+          {href: './vlog.html', label: 'vlog'},
+        ],
+        pic:[
+          'https://file.isheji.com/isheji/2888/577677/202205091501496278bc5d0d32f377722.png?x-oss-process=image/format,webp/resize,w_300',
+'https://t7.baidu.com/it/u=392011899,1121057691&fm=193&f=GIF',      'https://img1.baidu.com/it/u=2130905396,472753693&fm=253&fmt=auto&app=138&f=JPEG?w=755&h=500',          'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fwww.gd-uku.com%2FUpload%2FImages%2F2019%25E8%258A%2582%25E6%2597%25A5%25E5%259B%25BE%25E7%2589%2587%2F%25E7%25AB%25AF%25E5%258D%2588%25E8%258A%2582%2F%25E5%2588%2592%25E9%25BE%2599%25E8%2588%259F.jpg&refer=http%3A%2F%2Fwww.gd-uku.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1666089933&t=83a31fcf01ca85852f1f669307042bcb',
+         'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.51miz.com%2FElement%2F00%2F94%2F04%2F45%2F5b89c986_E940445_bbb43c4d.png&refer=http%3A%2F%2Fimg.51miz.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1666089965&t=67eed135fda8b9cc0b2daf98fd89d3e5',
+         'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpreview.qiantucdn.com%2Fauto_machine%2F20210526%2Fe289573f-8393-41e1-88b3-a4fd6f0e3a16.jpg%21w1024_new_small&refer=http%3A%2F%2Fpreview.qiantucdn.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1666089642&t=d615b04917f15e82ab6d144952d5a68c',
+          'https://img0.baidu.com/it/u=469074558,1588619875&fm=253&fmt=auto&app=120&f=JPEG?w=640&h=360'
+
+        ]
+      },
+      methods: {
+        
+      },
+      components: {
+        
+      },
+      watch: {
+        
+      },
+      computed: {
+      
+      }
+    })
+  </script>
+</body>
+</html>

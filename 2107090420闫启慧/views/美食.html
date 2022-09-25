@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>端午节美食</title>
+  <!-- 页面初始化 -->
+  <link rel="stylesheet" href="../css/base.css">
+  <!-- 共有的css -->
+  <link rel="stylesheet" href="../css/common.css">
+  <!-- 侧边导航栏的css -->
+  <link rel="stylesheet" href="../css/aside.css">
+  <!-- 美食页面的css -->
+  <link rel="stylesheet" href="../css/美食.css">
+  <!-- less编译工具 -->
+  <script src="https://cdn.jsdelivr.net/npm/less@4"></script>
+  <!-- 引入vue -->
+  <script src="https://unpkg.com/vue@2"></script>
+  <!-- 引入element-ui -->
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+</head>
+<body>
+  <!-- 整个盒子被vue控制，
+    vue是渐进式的，能让你学多少用多少，各个功能独立互不影响 -->
+  <div id="app">
+    <!-- 布局容器，构建整体布局 -->
+    <el-container>
+      <!-- 头部：制作导航栏 -->
+      <el-header>
+        <nav>
+          <div><a href="../../2107090422张瑞雪/index.html">春节</a></div>
+          <div><a href="../../2107090412袁晓楠/index.html">清明节</a></div>
+          <div class="active"><a href="#">端午节</a></div>
+		      <div><a href="../../2107090411刘敬超/index.html">中秋节</a></div>
+          <div><a href="../../index.html">其它节日</a></div>
+        </nav>
+      </el-header>
+      <!-- 主体内容：也是各个页面不同的地方 -->
+      <el-main>
+        <div class="left-box">
+          <ul>
+            <li v-for="(item,index) in aside" :class="index === 4 ? 'active' : ''">
+              <a :href="item.href">{{ item.label }}</a>
+            </li>
+            <hr>
+            <li class="end"><a href="../index.html">首页</a></li>
+            <li><a href="../views/登录.html">登录</a></li>
+          </ul>
+        </div>
+
+        <div class="right-box">
+          <div class="container">
+            <div class="big-box">
+              <img src="https://pics4.baidu.com/feed/1c950a7b02087bf4836478ae1265f72410dfcf28.jpeg?token=8fb10091b8153666804670605aea7e0a" alt="">
+            </div>
+            <div class="small-box">
+                <div class="img active">
+                  <img src="https://pics4.baidu.com/feed/1c950a7b02087bf4836478ae1265f72410dfcf28.jpeg?token=8fb10091b8153666804670605aea7e0a" alt="">
+                </div>				
+				<div class="img">				  
+				  <img src="https://pics3.baidu.com/feed/4bed2e738bd4b31c7c193ff45e6087779f2ff89c.jpeg?token=19c4bb36b227234387559b04adf1a801" alt="">
+                </div>                
+
+                <div class="img">
+                  <img src="https://pics7.baidu.com/feed/caef76094b36acafad0cd0199c6f2d1803e99ca2.jpeg?token=e53bac2ed282894bb98420008001c668" alt="">
+                </div>
+                <div class="img">
+                  <img src="https://pics3.baidu.com/feed/eac4b74543a98226861d28676a3419094890ebd5.jpeg?token=acd26a0ec6a34b9d94a19d7fb34ab604" alt="">
+                </div>
+                <div class="img">
+                  <img src="https://pics3.baidu.com/feed/4bed2e738bd4b31c683a03aa666087779f2ff8d9.jpeg?token=69fa9b107c14976ab599883def696a48" alt="">
+                </div>
+            </div>
+          </div>
+          <div id="text">
+            <h1>粽子</h1>
+            <p>端午节第一美食当属粽子了。粽子是由棕叶包裹上糯米蒸煮做成的。由于我国南北方饮食的差异，在棕叶和粽子食材的选择上也有些不同。南方人习惯用竹叶，有些地方还会用荷叶来作为棕叶，棕子口味比较多，以咸棕为主，内里包裹火腿，鲜肉，蛋黄，冬菇等馅料。而北方人习惯用苇叶来包，以甜棕为主，内里包裹红枣，豆沙等馅料。除此之外还有咸辣口的小川棕。粽子虽然好吃有着清热解暑的功效，但是毕竟是用糯米制作，黏性强，吃多了不容易消化，所以小孩子要少吃。</p>
+          </div>
+        </div>
+      </el-main>
+      <!-- 尾部：小组信息，练习方式，鸣谢等 -->
+      <footer>
+        <div v-for="item in footer" :key="item.label">
+          <div>
+            {{ item.label }}
+          </div>
+          <div>
+            {{ item.text }}
+          </div>
+        </div>
+      </footer>
+    </el-container>
+  </div>
+  <!-- 构建vue模板管理页面 -->
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        footer: [
+          {label:'小组成员', text: '张连博、刘敬超、袁晓楠、闫启慧、张瑞雪'},
+          {label:'指导教师', text: '白云飞老师'},
+          {label:'技术栈', text: 'html、css、javascript、vue'},
+          {label:'组件库', text: 'element-ui、艾恩小灰灰'},
+        ],
+        aside: [
+          {href: './概述.html', label: '概述'},
+          {href: './起源.html', label: '起源'},
+          {href: './典故.html', label: '典故'},
+          {href: './插画.html', label: '插画'},
+          {href: './美食.html', label: '美食'},
+          {href: './活动.html', label: '活动'},
+          {href: './诗歌.html', label: '诗歌'},
+          {href: './vlog.html', label: 'vlog'},
+        ]
+      },
+      methods: {
+        
+      },
+      components: {
+        
+      },
+      watch: {
+        
+      },
+      computed: {
+      
+      }
+    })
+  </script>
+  <script src="../js/端午美食.js"></script>
+</body>
+</html>

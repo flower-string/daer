@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>春节首页</title>
+  <!-- 页面初始化 -->
+  <link rel="stylesheet" href="./css/base.css">
+  <!-- 共有的css -->
+  <link rel="stylesheet" href="./css/common.css">
+  <!-- 首页的css -->
+  <link rel="stylesheet" href="./css/index.css">
+  <!-- less编译工具 -->
+  <script src="https://cdn.jsdelivr.net/npm/less@4"></script>
+  <!-- 引入vue -->
+  <script src="https://unpkg.com/vue@2"></script>
+  <!-- 引入element-ui -->
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+</head>
+<body>
+  <!-- 整个盒子被vue控制，
+    vue是渐进式的，能让你学多少用多少，各个功能独立互不影响 -->
+  <div id="app">
+    <!-- 布局容器，构建整体布局 -->
+    <el-container>
+      <!-- 头部：制作导航栏 -->
+      <el-header>
+        <nav>
+          <div class="active">春节</div>
+          <div><a href="../2107090412袁晓楠/index.html">清明节</a></div>
+          <div><a href="../2107090420闫启慧/index.html">端午节</a></div>
+          <div><a href="../2107090411刘敬超/index.html">中秋节</a></div>
+          <div><a href="../index.html">其它节日</a></div>
+        </nav>
+      </el-header>
+      <!-- 主体内容：也是各个页面不同的地方 -->
+      <el-main>
+        <a v-for="item in card" :href="item.href">
+          <div class="item" >
+            <div class="img"><img :src="item.url" alt=""></div>
+            <div class="caption">
+                <h3>{{ item.h }}</h3>
+                <p>{{ item.p }}</p>
+            </div>
+          </div>
+        </a>
+      </el-main>
+      <!-- 尾部：小组信息，练习方式，鸣谢等 -->
+      <footer>
+        <div v-for="item in footer" :key="item.label">
+          <div>
+            {{ item.label }}
+          </div>
+          <div>
+            {{ item.text }}
+          </div>
+        </div>
+      </footer>
+    </el-container>
+  </div>
+  <!-- 构建vue模板管理页面 -->
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        footer: [
+          {label: '小组成员', text: '张连博、刘敬超、袁晓楠、闫启慧、张瑞雪'},
+          {label: '指导教师', text: '白云飞老师'},
+          {label: '技术栈', text: 'html、css、javascript、vue'},
+          {label: '组件库', text: 'element-ui、艾恩小灰灰'},
+        ],
+        card:[
+          {href: './views/传说故事.html', url: 'https://img95.699pic.com/photo/40095/4306.jpg_wh300.jpg', h: '传说故事', p: '本部分介绍了春节的来源及相关传说故事，对于我国四大传统节日之一的春节，我们一起来详细了解它吧！'},
+          {href: './views/美食佳肴.html', url: 'https://img95.699pic.com/photo/50077/1637.jpg_wh300.jpg', h: '美食佳肴', p: '春节怎么少得了美食呢！跟随我的脚步，一起探索那些春节特殊美食，了解春节期间各地不同的饮食文化吧！'},
+          {href: './views/春节影音.html', url: 'https://img95.699pic.com/photo/50170/5794.jpg_wh300.jpg', h: '春节影音', p: '春节热闹非凡，全国人民共同庆祝，在这里你可以看到不同的春节节目，体验多种氛围。'},
+          {href: './views/节日民俗.html', url: 'https://img95.699pic.com/photo/40071/5293.jpg_wh300.jpg', h: '节日民俗', p: '我国地大物博，不同地区的人民有着对春节怎样的欢度方式呢，有哪些属于他们的特色呢，我们一同来领略一下吧。'},
+          {href: './views/访谈意义.html', url: 'https://img95.699pic.com/photo/40187/6122.jpg_wh300.jpg', h: '访谈意义', p: '传统节日春节对于广大中国人民有着怎样非凡的意义呢？在这一部分我们一同感受中国人民的节日情怀。'},
+          {href: './views/春节趣事.html', url: 'https://img95.699pic.com/photo/50077/1643.jpg_wh300.jpg', h: '春节趣事', p: '美好的节日当然会发生有趣的事，在春节每家每户、全国各地又会迸发出怎样的有趣之事呢？'},
+          {href: './views/春节文化.html', url: 'https://img95.699pic.com/photo/50113/0628.jpg_wh300.jpg', h: '春节文化', p: '作为传统四大节日之一的春节，自古以来又怎么会少了各路文人雅客的赞美呢，让我们一同领略春节的魅力吧！'},
+          {href: './views/各地活动.html', url: 'https://img95.699pic.com/photo/50080/7975.jpg_wh300.jpg', h: '各地活动', p: '中国幅员辽阔，地域之间有不同的文化差异，看全国各地的小伙伴都是怎样度过春节的吧！'},
+          {href: './views/春节美图.html', url: 'https://img95.699pic.com/photo/50018/2930.jpg_wh300.jpg', h: '春节美图', p: '奉上春节间不同地区的景色、不同种类的美食，一起看看有没有你熟悉的故乡吧。'},
+        ]
+      },
+      methods: {
+        
+      },
+      components: {
+        
+      },
+      watch: {
+        
+      },
+      computed: {
+      
+      }
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>春节传说故事</title>
+  <!-- 页面初始化 -->
+  <link rel="stylesheet" href="../css/base.css">
+  <!-- 共有的css -->
+  <link rel="stylesheet" href="../css/common.css">
+  <!-- 侧边导航栏的css -->
+  <link rel="stylesheet" href="../css/aside.css">
+  <!-- 典故页的css -->
+  <link rel="stylesheet" href="../css/传说故事.css">
+  <!-- less编译工具 -->
+  <script src="https://cdn.jsdelivr.net/npm/less@4"></script>
+  <!-- 引入vue -->
+  <script src="https://unpkg.com/vue@2"></script>
+  <!-- 引入element-ui -->
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+</head>
+<body>
+  <!-- 整个盒子被vue控制，
+    vue是渐进式的，能让你学多少用多少，各个功能独立互不影响 -->
+  <div id="app">
+    <!-- 布局容器，构建整体布局 -->
+    <el-container>
+      <!-- 头部：制作导航栏 -->
+      <el-header>
+        <nav>
+          <div class="active"><a href="">春节</a></div>
+          <div><a href="../../2107090412袁晓楠/index.html">清明节</a></div>
+          <div><a href="../../2107090422张瑞雪/index.html">端午节</a></div>
+          <div><a href="../../2107090411刘敬超/index.html">中秋节</a></div>
+          <div><a href="../../index.html">其它节日</a></div>
+        </nav>
+      </el-header>
+      <!-- 主体内容：也是各个页面不同的地方 -->
+      <el-main>
+        <div class="left-box">
+          <ul>
+            <li v-for="(item,index) in aside" :class="index === 0 ? 'active' : ''">
+              <a :href="item.href">{{ item.label }}</a>
+            </li>
+            <hr>
+            <li class="end"><a href="../index.html">首页</a></li>
+            <li><a href="./登录.html">登录</a></li>
+          </ul>
+        </div>
+
+        <div class="right-box">
+          <div class="container">
+            <div class="boxnav">
+              <div class="item" v-for="item in title"><i>{{ item }}</i></div>
+            </div>
+            <div class="content">
+              <section class="active section"><span>
+                从前，有一种怪兽的名字叫“年”。它的头上长着角，非常厉害。平时，年兽躲在海底下，快过春节了，年兽就会从海底下爬出来，吃牛羊鸡猪，甚至人。有一次，老百姓知道年兽要来了，都带着牲口进山里躲避，这时候，来了一位白胡子老爷爷。一位老婆婆劝白胡子老爷爷赶快躲一躲。白胡子爷爷说，我住在这里，不会怕兽的，只会是年兽怕我。原来，年兽最怕红色，响声和火光。从那以后，大家知道了敢走年兽的好办法。春节快到的时候，都会在门口贴上红对联，红福字，在窗子上贴上红窗花，还会放起“砰砰啪啪”响的爆竹，烟花。
+              </span></section>
+              <section class="section"><span>
+                相传有一个鬼域的世界，当中有座山，山上有一棵大桃树，树梢上有一只金鸡。每当清晨金鸡长鸣的时候，夜晚出去游荡的鬼魂必赶回鬼域。如果鬼魂在夜间干了伤天害理的事情，神荼、郁垒就会立即发现并将它捉住，送去喂虎。因而天下的鬼都畏惧神荼、郁垒。于是民间就在象征喜气吉祥的红纸上画上神荼、郁垒，新春之际贴在门窗两边。用以表达人们祈求来年福运的美好心愿。据说，大门上贴上两位门神，一切妖魔鬼怪都会望而生畏。
+              </span></section>
+              <section class="section"><span>
+                明太祖朱璋当年用"福"字作暗记准备杀人。好心的马皇后为消除这场灾祸，令全城大小人家在天明之前在自家门上贴上一福"字。马皇后的旨意自然没人敢违抗，于是家家门上都贴了"福"字。其中有户人家不识字，竟把"福"字贴倒了。第二天，皇帝派人上街查看，发现家家都贴了"福字，还有一家把"福"字贴倒了。皇帝听了勃然大怒，立即命令御林军把那家满门抄斩。马皇后一看事情不好，忙对朱元漳说:“那家人知道您今日来访，故意把福字贴倒了，这不是‘福到’的意思吗?“"皇帝一听有道理，便下令放人，一场大祸终于消除了。从此人们便将福字倒贴起来，一求吉利，二为纪念马皇后。
+              </span></section>
+              <section class="section"><span>
+                民间传说正月初五是财神的生日，过了年初一，就要接财神。在财神生日到来的前一天晚上，各家置办酒席，为财神贺辰。关于财神，民间有诸多传说:宋朝蔡京富有，民间传说他是富神降生，他恰生于正月出五，所以民间把他当作财神来祭拜。后蔡京被贬，民间另换财神，当时宋朝的国姓为赵，便给财神起了一个赵玄坛的名字加以敬拜。玄坛面似锅底，手执钢鞭，身骑黑虎，极其威武。除了赵玄坛被尊为“正财神”外，民间还有“偏财神”、“五显财神”、“文财神”财帛星君和“武财神”关圣帝君的说法。
+              </span></section>
+              <section class="section"><span>
+                年画始于古代的门神画，因一年更换，或张贴后可供一年欣赏之用，故称年画。民间年画从早期对自然和神祇的崇拜，逐渐发展为驱邪纳祥和装饰美化环境的节日风俗活动。其中，门神是较为常见的一种题材。门神分文武两种，文门神多为“天官赐福”，武门神多为秦叔宝(又名秦琼)与尉迟恭(又名尉迟敬德)两位盛唐名将。贴门神也有讲究，一般在大门口贴的是武门神，进入院子后，在外屋的门上贴的就是文门神。进门后，在屋子里面的门上，一般都会贴上一对门童，对开的年画，如刘海戏蟾等。
+              </span></section>
+              <section class="section"><span>
+                中国民间有“开门爆竹”的传说。在新的一年到来之际，家家户户开门的第—件事就是燃放爆竹，以爆竹声除旧迎新。爆竹也称“爆仗”、“炮仗”、“鞭炮”。起源很早，至今已有两千多年的历史。人们认为放爆竹可以创造一种喜庆气氛，是节日的一种娱乐活动，它可以给人们带来欢愉和吉利。
+              </span></section>
+            </div>
+          </div>
+        </div>
+      </el-main>
+      <!-- 尾部：小组信息，练习方式，鸣谢等 -->
+      <footer>
+        <div v-for="item in footer" :key="item.label">
+          <div>
+            {{ item.label }}
+          </div>
+          <div>
+            {{ item.text }}
+          </div>
+        </div>
+      </footer>
+    </el-container>
+  </div>
+  <!-- 构建vue模板管理页面 -->
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        footer: [
+          {label:'小组成员', text: '张连博、刘敬超、袁晓楠、闫启慧、张瑞雪'},
+          {label:'指导教师', text: '白云飞老师'},
+          {label:'技术栈', text: 'html、css、javascript、vue'},
+          {label:'组件库', text: 'element-ui、艾恩小灰灰'},
+        ],
+        aside: [
+          {href: './传说故事.html', label: '传说故事'},
+          {href: './美食佳肴.html', label: '美食佳肴'},
+          {href: './春节影音.html', label: '春节影音'},
+          {href: './节日民俗.html', label: '节日民俗'},
+          {href: './访谈意义.html', label: '访谈意义'},
+          {href: './春节趣事.html', label: '春节趣事'},
+          {href: './春节文化.html', label: '春节文化'},
+          {href: './各地活动.html', label: '各地活动'},
+          {href: './春节美图.html', label: '春节美图'},
+        ],
+        title:['驱赶年兽','贴门神','贴福字','接财神','贴年画','开门爆竹'],
+      },
+      methods: {
+        
+      },
+      components: {
+        
+      },
+      watch: {
+        
+      },
+      computed: {
+      
+      }
+    })
+  </script>
+  <script src="../js/传说故事.js"></script>
+</body>
+</html>

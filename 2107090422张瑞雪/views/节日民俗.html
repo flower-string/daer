@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>节日民俗</title>
+  <!-- 页面初始化 -->
+  <link rel="stylesheet" href="../css/base.css">
+  <!-- 共有的css -->
+  <link rel="stylesheet" href="../css/common.css">
+  <!-- 侧边导航栏的css -->
+  <link rel="stylesheet" href="../css/aside.css">
+  <!-- 美食页面的css -->
+  <link rel="stylesheet" href="../css/节日民俗.css">
+  <!-- less编译工具 -->
+  <script src="https://cdn.jsdelivr.net/npm/less@4"></script>
+  <!-- 引入vue -->
+  <script src="https://unpkg.com/vue@2"></script>
+  <!-- 引入element-ui -->
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+</head>
+<body>
+    <!-- 整个盒子被vue控制，
+      vue是渐进式的，能让你学多少用多少，各个功能独立互不影响 -->
+    <div id="app">
+      <!-- 布局容器，构建整体布局 -->
+      <el-container>
+        <!-- 头部：制作导航栏 -->
+        <el-header>
+          <nav>
+            <div class="active"><a href="">春节</a></div>
+            <div><a href="../../2107090412袁晓楠/index.html">清明节</a></div>
+            <div><a href="../../2107090422张瑞雪/index.html">端午节</a></div>
+            <div><a href="../../2107090411刘敬超/index.html">中秋节</a></div>
+            <div><a href="../../index.html">其它节日</a></div>
+          </nav>
+        </el-header>
+        <!-- 主体内容：也是各个页面不同的地方 -->
+      <el-main>
+        <div class="left-box">
+          <ul>
+            <li v-for="(item,index) in aside" :class="index === 3 ? 'active' : ''">
+              <a :href="item.href">{{ item.label }}</a>
+            </li>
+            <hr>
+            <li class="end"><a href="../index.html">首页</a></li>
+            <li><a href="./登录.html">登录</a></li>
+          </ul>
+        </div>
+
+        <div class="right-box">
+          <div class="container">
+            <div class="box">
+                <div class="img-box">
+                <img src="../assets/image/新春扫尘.webp" alt="">
+            </div>
+            <div class="text-box">
+                <div>
+                    <h2>新春扫尘</h2>
+                    <p>《吕氏春秋》上记载，早在尧舜时代，我国就有在春节扫尘的节日习俗，因为“尘”与“陈”谐音，所以新春扫尘就包含了“除旧布新”的含义，大家希望通过扫尘，把一切穷运、晦气统统扫地出门。</p>
+                </div>
+             </div>
+          </div>
+          <div class="box">
+            <div class="img-box">
+            <img src="../assets/image/贴春联.png" alt=""/>
+        </div>
+        <div class="text-box">
+            <div>
+                <h2>贴春联</h2>
+                <p>春联也叫门对、对联、对子、桃符、春贴等，用精巧的文字，抒发人们对未来的美好愿望，是我国特有的一种文学形式，在我国民间，无论是城市还是农村，春节来临之前，人们都会精选一副对联，贴在自己家的大门之上，为春节增添了不少的喜庆气氛。</p>
+            </div>
+         </div>
+      </div>
+      <div class="box">
+        <div class="img-box">
+        <img src="../assets/image/守岁.png" alt=""/>
+    </div>
+    <div class="text-box">
+        <div>
+            <h2>守岁</h2>
+            <p>除夕夜守岁，也是非常重要的习俗之一，就是在除夕夜里，大家终夜不眠，以待天明，称为“守岁”，也叫“熬年”，守岁有两层意思：年长者守岁，是为了辞旧岁，有珍惜光阴的含义，年轻人守岁，是为了延长父母的寿命。</p>
+        </div>
+     </div>
+  </div>
+  <div class="box">
+    <div class="img-box">
+    <img src="../assets/image/放爆竹.png" alt=""/>
+</div>
+<div class="text-box">
+    <div>
+        <h2>放爆竹</h2>
+        <p>爆竹，也称爆仗、炮仗、鞭炮，放爆竹的习俗，至今已有两千多年的历史，在春节到来之际，家家户户开门的第一件事，就是燃放爆竹，噼里啪啦的爆竹声，就代表着辞旧迎新，放爆竹还可以创造出喜庆的节日气氛，给人们带来欢乐和吉利。</p>
+    </div>
+ </div>
+</div>
+<div class="box">
+    <div class="img-box">
+    <img src="../assets/image/吃饺子.png" alt=""/>
+</div>
+<div class="text-box">
+    <div>
+        <h2>吃饺子</h2>
+        <p>在我们北方过年，大年初一的第一顿饭，一定是吃饺子，在南方则有的吃饺子，有的吃汤圆，现在虽然饺子已经是家常便饭，但儿时母亲包的饺子，美味无穷，依然记忆犹新，尤其是大年初一早上的饺子，想起来就让人流口水。</p>
+    </div>
+ </div>
+</div>
+<div class="box">
+    <div class="img-box">
+    <img src="../assets/image/压岁钱.png" alt=""/>
+</div>
+<div class="text-box">
+    <div>
+        <h2>压岁钱</h2>
+        <p>在除夕守岁的时候，长辈就要给晚辈压岁钱，也称压腰钱、压胜钱、压祟钱，因为“岁”与“祟”谐音，所以也表示长辈们希望压岁钱能够驱邪避灾，保佑孩子们健健康康，平平安安。</p>
+    </div>
+ </div>
+</div>
+<div class="box">
+    <div class="img-box">
+    <img src="../assets/image/拜年.png" alt=""/>
+</div>
+<div class="text-box">
+    <div>
+        <h2>拜年</h2>
+        <p>拜年是春节的一件非常重要的活动，很多身在外地的人，在春节前，都会赶回老家过年，大年初一早上，人们早早起来，吃完饺子后，就穿上新衣服，打扮地整整齐齐的，然后走亲访友，相互拜年，恭祝来年大吉大利。</p>
+    </div>
+ </div>
+</div>
+<div class="box">
+    <div class="img-box">
+    <img src="../assets/image/逛庙会.png" alt=""/>
+</div>
+<div class="text-box">
+    <div>
+        <h2>逛庙会</h2>
+        <p>春节还有一个不可或缺的习俗，就是逛庙会，庙会以祭祀活动为主，人们都会进香朝拜、许愿、还愿、求福，当然，庙会期间少不了一些卖这卖那的商贩，还有各种民间艺术表演，非常热闹。</p>
+    </div>
+ </div>
+</div>
+</div>     
+</div>
+</el-main>
+<footer>
+    <div v-for="item in footer" :key="item.label">
+      <div>
+        {{ item.label }}
+      </div>
+      <div>
+        {{ item.text }}
+      </div>
+    </div>
+  </footer>
+</el-container>
+<script>
+new Vue({
+el: '#app',
+data: {
+  footer: [
+    {label: '小组成员', text: '张连博、刘敬超、袁晓楠、闫启慧、张瑞雪'},
+    {label: '指导教师', text: '白云飞老师'},
+    {label: '技术栈', text: 'html、css、javascript、vue'},
+    {label: '组件库', text: 'element-ui、艾恩小灰灰'},
+  ],
+  aside: [
+      {href: './传说故事.html', label: '传说故事'},
+      {href: './美食佳肴.html', label: '美食佳肴'},
+      {href: './春节影音.html', label: '春节影音'},
+      {href: './节日民俗.html', label: '节日民俗'},
+      {href: './访谈意义.html', label: '访谈意义'},
+      {href: './春节趣事.html', label: '春节趣事'},
+      {href: './春节文化.html', label: '春节文化'},
+      {href: './各地活动.html', label: '各地活动'},
+      {href: './春节美图.html', label: '春节美图'},
+  ]
+ 
+}
+})
+</script> 
+</body>
+</html>

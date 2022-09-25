@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>中秋节美食</title>
+  <!-- 页面初始化 -->
+  <link rel="stylesheet" href="../css/base.css">
+  <!-- 共有的css -->
+  <link rel="stylesheet" href="../css/common.css">
+  <!-- 侧边导航栏的css -->
+  <link rel="stylesheet" href="../css/aside.css">
+  <!-- 美食页面的css -->
+  <link rel="stylesheet" href="../css/美食.css">
+  <!-- less编译工具 -->
+  <script src="https://cdn.jsdelivr.net/npm/less@4"></script>
+  <!-- 引入vue -->
+  <script src="https://unpkg.com/vue@2"></script>
+  <!-- 引入element-ui -->
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+</head>
+<body>
+  <!-- 整个盒子被vue控制，
+    vue是渐进式的，能让你学多少用多少，各个功能独立互不影响 -->
+  <div id="app">
+    <!-- 布局容器，构建整体布局 -->
+    <el-container>
+      <!-- 头部：制作导航栏 -->
+      <el-header>
+        <nav>
+          <div><a href="../../2107090422张瑞雪/index.html">春节</a></div>
+          <div class="active"><a href="../../2107090412袁晓楠/index.html">清明节</a></div>
+          <div><a href="../../2107090420闫启慧/index.html">端午节</a></div>
+          <div><a href="../../2107090411刘敬超/index.html">中秋节</a></div>
+          <div><a href="../../index.html">其它节日</a></div>
+        </nav>
+      </el-header>
+      <!-- 主体内容：也是各个页面不同的地方 -->
+      <el-main>
+        <div class="left-box">
+          <ul>
+            <li v-for="(item,index) in aside" :class="index === 4 ? 'active' : ''">
+              <a :href="item.href">{{ item.label }}</a>
+            </li>
+            <hr>
+            <li class="end"><a href="../index.html">首页</a></li>
+            <li><a href="./登录.html">登录</a></li>
+          </ul>
+        </div>
+
+        <div class="right-box">
+          <div class="container">
+            <div class="big-box">
+              <img src="https://pic1.zhimg.com/v2-3974ecfe510e373dfa2aea228d144e74_b.jpg" alt="">
+            </div>
+            <div class="small-box">
+                <div class="img active">
+                  <img src="https://pic1.zhimg.com/v2-3974ecfe510e373dfa2aea228d144e74_b.jpg" alt="">
+                </div>
+                <div class="img">
+                  <img src="https://pic2.zhimg.com/v2-92b2b60f138062b4e8808041df7ba10d_b.jpg" alt="">
+                </div>
+                <div class="img">
+                  <img src="https://pic1.zhimg.com/v2-faa5a250f73b2c4c57d5729f928afe14_b.jpg" alt="">
+                </div>
+                <div class="img">
+                  <img src="https://pic3.zhimg.com/v2-7d34cae47462b5ddcc00ff56fd06de56_b.jpg" alt="">
+                </div>
+                <div class="img">
+                  <img src="https://pic2.zhimg.com/v2-346746abd2b1d60b4a8f81396d5bfc11_b.jpg" alt="">
+                </div>
+            </div>
+          </div>
+          <div id="text">
+            <h1>月饼</h1>
+            <p>中秋节吃月饼是我们国家的传统习俗。风清月朗，桂香沁人，家家户户吃月饼，团聚快乐，别有一番节日的味道。月饼作为一种形如圆，内含佳馅的食品，在北宋时期就已经出现。诗人兼美食家苏东坡有“小饼如嚼月，中有酥和饴”的诗句。月饼作为一种食物，被称为“月饼”，最早见于南宋《武林旧事.蒸作饮食》。当时，杭州民间有“又月饼相馈，取中秋团园之意””。到了元朝末年，月饼已成为中秋佳节的佳肴。</p>
+          </div>
+        </div>
+      </el-main>
+      <!-- 尾部：小组信息，练习方式，鸣谢等 -->
+      <footer>
+        <div v-for="item in footer" :key="item.label">
+          <div>
+            {{ item.label }}
+          </div>
+          <div>
+            {{ item.text }}
+          </div>
+        </div>
+      </footer>
+    </el-container>
+  </div>
+  <!-- 引入数据文件 -->
+  <script src="../js/db.js"></script>
+  <!-- 构建vue模板管理页面 -->
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        footer,
+        aside
+      },
+    })
+  </script>
+  <script src="../js/美食.js"></script>
+</body>
+</html>

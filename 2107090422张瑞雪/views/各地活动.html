@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>各地活动</title>
+  <!-- 页面初始化 -->
+  <link rel="stylesheet" href="../css/base.css">
+  <!-- 共有的css -->
+  <link rel="stylesheet" href="../css/common.css">
+  <!-- 侧边导航栏的css -->
+  <link rel="stylesheet" href="../css/aside.css">
+  <!-- vlog页面的css -->
+  <link rel="stylesheet" href="../css/各地活动.css">
+  <!-- less编译工具 -->
+  <script src="https://cdn.jsdelivr.net/npm/less@4"></script>
+  <!-- 引入vue -->
+  <script src="https://unpkg.com/vue@2"></script>
+  <!-- 引入element-ui -->
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+</head>
+<body>
+  <!-- 整个盒子被vue控制，
+    vue是渐进式的，能让你学多少用多少，各个功能独立互不影响 -->
+  <div id="app">
+    <!-- 布局容器，构建整体布局 -->
+    <el-container>
+      <!-- 头部：制作导航栏 -->
+      <el-header>
+        <nav>
+          <div class="active"><a href="">春节</a></div>
+          <div><a href="../../2107090412袁晓楠/index.html">清明节</a></div>
+          <div><a href="../../2107090422张瑞雪/index.html">端午节</a></div>
+          <div><a href="../../2107090411刘敬超/index.html">中秋节</a></div>
+          <div><a href="../../index.html">其它节日</a></div>
+        </nav>
+      </el-header>
+      <!-- 主体内容：也是各个页面不同的地方 -->
+      <el-main>
+        <div class="left-box">
+          <ul>
+            <li v-for="(item,index) in aside" :class="index === 7 ? 'active' : ''">
+              <a :href="item.href">{{ item.label }}</a>
+            </li>
+            <hr>
+            <li class="end"><a href="../index.html">首页</a></li>
+            <li><a href="./登录.html">登录</a></li>
+          </ul>
+        </div>
+
+        <div class="right-box"> 
+          <ul class="container">
+            <li>
+                <img src="../assets/image/北京踩岁.webp" alt=""/>
+                <p>
+                    北京踩岁，踩岁有“节节高升”的美好寓意。年三十将芝麻秸铺于院内，踩踏出入，噼啪作响，称为踩岁。此举最早是为了防盗，后来演变成“踩祟”习俗
+                </p>
+            </li>
+            <li>
+                <img src="../assets/image/东北龙灯会.webp" alt=""/>
+                <p>
+                    东北龙灯会，龙灯会意在祈求风调雨顺，四季丰收。龙是五瑞兽之首，龙灯会是东北正月十五节庆活动的高潮。扎龙灯、画彩磷、描龙须、衔龙珠、插彩旗、内燃烛，拿着龙灯跳龙舞，满城游行，希望得到神龙保佑
+                </p>
+            </li>
+            <li>
+                <img src="../assets/image/西藏挂经幡.jpeg" alt=""/>
+                <p>
+                    西藏挂经幡，挂经幡意在向天求福。新年清晨，藏族人民把印有佛经的经幡挂在树上或山顶，随风飘舞，犹如诵读经文，不停向神传达人的愿望。祈求新的一年风调雨顺，人丁兴旺，全家平安
+                </p>
+            </li>
+            <li>
+                <img src="../assets/image/浙江运河灯会.jpeg" alt=""/>
+                <p>
+                    浙江运河灯会，运河灯会为水乡增添了许多新年喜气。运河灯会起源于唐末宋初，浙江一地最为著名，不仅有陆上彩灯，还有水上船灯、船上花灯、河面水灯。每逢灯会，贴心愿、看表演、猜灯谜、品小吃，街上商贾云集、人头攒动，河里流光溢彩、交相辉映
+                </p>
+            </li>
+            <li>
+                <img src="../assets/image/安徽嬉与灯.jpeg" alt="">
+                <p>
+                    安徽嬉与灯，嬉与灯有“年年有余”之意。以竹架糊上锦纸，油彩绘上鱼鳞，鱼头书“王”，内置花灯，摇头摆尾，游走出行。百姓随其两侧，欢歌笑语，气氛欢腾
+                </p>
+            </li>
+            <li>
+                <img src="../assets/image/山西壘旺火.jpeg" alt="">
+                <p>
+                    山西壘旺火，壘旺火寓意年年兴旺。将煤炭垒成宝瓶状，里添柴火，外披彩花，上贴红字：旺气冲天。在除夕夜鞭炮齐鸣之时点燃，火舌兴旺，既御寒，又壮观，寄托了人们对来年日子红红火火的愿望
+                </p>
+            </li>
+            <li>
+                <img src="../assets/image/河南祭灶.webp" alt="">
+                <p>
+                    河南祭灶，“二十三，祭灶官”。这天在外的人要赶回家，由男人主祭，做祭灶汤，供芝麻酥，烙火烧，夹在公鸡两翼，供于灶神前，燃香表，放鞭炮，送灶爷骑马上天，自此神煞上天，百无禁忌，安心过年
+                </p>
+            </li>
+            <li>
+                <img src="../assets/image/陕西蒸面花.jpeg" alt="">
+                <p>
+                    陕西蒸面花，蒸面花是家家户户过年的大事。通常由家中最年长的妇女制作，是祭拜祖先、走亲访友不可或缺的礼俗食物。枣山馍馍，下托回云纹，中加大红枣，祝愿家中粮食堆积如山，五谷丰登
+                </p>
+            </li>
+          </ul>
+
+        </div>
+      </el-main>
+      <footer>
+        <div v-for="item in footer" :key="item.label">
+          <div>
+            {{ item.label }}
+          </div>
+          <div>
+            {{ item.text }}
+          </div>
+        </div>
+      </footer>
+    </el-container>
+  </div>
+<script>
+  new Vue({
+    el: '#app',
+    data: {
+      footer: [
+        {label: '小组成员', text: '张连博、刘敬超、袁晓楠、闫启慧、张瑞雪'},
+        {label: '指导教师', text: '白云飞老师'},
+        {label: '技术栈', text: 'html、css、javascript、vue'},
+        {label: '组件库', text: 'element-ui、艾恩小灰灰'},
+      ],
+      aside: [
+        {href: './传说故事.html', label: '传说故事'},
+        {href: './美食佳肴.html', label: '美食佳肴'},
+        {href: './春节影音.html', label: '春节影音'},
+        {href: './节日民俗.html', label: '节日民俗'},
+        {href: './访谈意义.html', label: '访谈意义'},
+        {href: './春节趣事.html', label: '春节趣事'},
+        {href: './春节文化.html', label: '春节文化'},
+        {href: './各地活动.html', label: '各地活动'},
+        {href: './春节美图.html', label: '春节美图'},
+      ]
+    }
+  })
+</script>
+<script src="../js/各地活动.js"></script> 
+</body>
+</html>

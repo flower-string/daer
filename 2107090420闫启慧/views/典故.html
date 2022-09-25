@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>端午节典故</title>
+  <!-- 页面初始化 -->
+  <link rel="stylesheet" href="../css/base.css">
+  <!-- 共有的css -->
+  <link rel="stylesheet" href="../css/common.css">
+  <!-- 侧边导航栏的css -->
+  <link rel="stylesheet" href="../css/aside.css">
+  <!-- 典故页的css -->
+  <link rel="stylesheet" href="../css/典故.css">
+  <!-- less编译工具 -->
+  <script src="https://cdn.jsdelivr.net/npm/less@4"></script>
+  <!-- 引入vue -->
+  <script src="https://unpkg.com/vue@2"></script>
+  <!-- 引入element-ui -->
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+</head>
+<body>
+  <!-- 整个盒子被vue控制，
+    vue是渐进式的，能让你学多少用多少，各个功能独立互不影响 -->
+  <div id="app">
+    <!-- 布局容器，构建整体布局 -->
+    <el-container>
+      <!-- 头部：制作导航栏 -->
+      <el-header>
+        <nav>
+          <div><a href="../../2107090422张瑞雪/index.html">春节</a></div>
+          <div><a href="../../2107090412袁晓楠/index.html">清明节</a></div>
+          <div class="active"><a href="#">端午节</a></div>
+		      <div><a href="../../2107090411刘敬超/index.html">中秋节</a></div>
+          <div><a href="../../index.html">其它节日</a></div>
+        </nav>
+      </el-header>
+      <!-- 主体内容：也是各个页面不同的地方 -->
+      <el-main>
+        <div class="left-box">
+          <ul>
+            <li v-for="(item,index) in aside" :class="index === 2 ? 'active' : ''">
+              <a :href="item.href">{{ item.label }}</a>
+            </li>
+            <hr>
+            <li class="end"><a href="../index.html">首页</a></li>
+            <li><a href="../views/登录.html">登录</a></li>
+          </ul>
+        </div>
+
+        <div class="right-box">
+          <div class="container">
+            <div class="boxnav">
+              <div class="item" v-for="item in title"><i>{{ item }}</i></div>
+            </div>
+            <div class="content">
+              <section class="active section"><span>
+                 屈原是春秋时期楚怀王的大臣，因力主联齐抗秦而遭谗去职流放，被赶出都城，流放到沅、湘流域。他在流放中，写下了忧国忧民的《离骚》、《天问》、《九歌》等不朽诗篇，独具风貌，影响深远（因而，端午节也称诗人节）。公元前278年，秦军攻破楚国京都。屈原眼看自己的祖国被侵略，心如刀割，但是始终不忍舍弃自己的祖国，于五月五日端午节，用纸笔写下了绝笔作《怀沙》之后，抱石投汨罗江身死，以自己的生命谱写了一曲壮丽的爱国主义乐章。传说屈原死后，楚国百姓哀痛异常，纷纷涌到汨罗江边去凭吊屈原。渔夫们划起船只，在江上来回打捞他的真身。
+              </span></section>
+              <section class="section"><span>
+                涛神伍子胥是非常经典的端午节传说故事，源自古代民间在端午节纪念伍子胥的传说。相传吴王夫差因听信谗言而赐死伍子胥，还下令取吴子胥的尸体装在皮革里。于5月初五投入钱塘江，两年后越国攻打吴国，在8月18那天潮水汹涌。江面上鼓乐大作，老百姓看到伍子胥身披战袍立在潮头，身边还站着四员大将，眼看着吴国兵败覆灭。老百姓都说这是天帝怜伍子胥竭尽衷心却被冤死，便封他为钱塘江涛神。于是当地百姓为了纪念伍子胥，便在端午这一天以龙舟竞渡来迎接涛神。
+              </span></section>
+              <section class="section"><span>
+                关于端午节的故事传说有很多，其中最感人的莫过于孝女曹娥救父投江的故事。传说曹娥是东汉上虞人，其父亲溺于江中，数日不见尸体。年仅14岁的曹娥昼夜沿江号哭寻找父亲，从江中抱出了父亲的尸体，后投江而亡。就此成为神话，因为曹娥投江的时间是五月初五端午节。于是有了端午节是为了纪念孝女曹娥的说法。
+              </span></section>
+              <section class="section"><span>
+                纪念介子推，是关于端午节门前插柳而流传下来的一个故事传说。相传晋文公重耳复国，做了国君，封赏大典上原来跟随众耳逃难的人都加官进爵。连投降归顺的那些旧尘也都有了官职，却独独少了介子推。介子推既不居功，又不愿领赏，一声不响的背着老母亲跑到绵山隐居了下来，后来众而得知此事，悔之莫及。亲自到绵山寻访，但介子推拒不出山，重耳无奈，便下令放火烧山，想以此逼他出身。谁知火烧了三日，介子推竟抱着大树，母子二人活活烧死，进门宫傲悔不已，把介子推安葬在绵山下，下令把绵山改为介休山。并为他建立寺庙，于每年的五月五日祭祀他。人们为了纪念他，每到端午节这天，家家户户都在房檐上插上杨柳。
+              </span></section>
+              <section class="section"><span>
+                勾践操练水军的故事，也是关于端午节比较经典的传说故事，据说龙舟竞渡活动就是为了纪念越王勾践操练水师并打败吴国的历史。传说勾践战败被俘后，吴国过了三年忍辱负重的生活，得了吴王夫差的信任，被放回越国。回国后勾践卧薪尝胆，立志雪耻。于当年五月初五端午节成立水师开始操练，数年后终于一举消灭吴国后人，为彰显勾践这种坚忍不拔的精神，便效仿越国水师演练时的情景，于五月初五日这一天划船竞渡，以示纪念。
+              </span></section>
+              <section class="section"><span>
+                端午节白娘子喝雄黄酒现原形的故事，是一个家喻户晓的神话传说，至今依然被人们津津乐道。传说在端午节那天老百姓都喝雄黄酒辟邪，许仙按照法海教的方法逼迫白娘子喝雄黄酒。白娘子推却不了许仙，喝了酒后马上献出蛇的原型，许仙立刻被吓死了，为了救活许仙，白娘子不顾自己怀孕，千里迢迢来到昆仑圣山偷盗起死回生的灵芝草，最后许仙被救活，知道白娘子真心爱自己，夫妻更加恩爱了。
+              </span></section>
+            </div>
+          </div>
+        </div>
+      </el-main>
+      <!-- 尾部：小组信息，练习方式，鸣谢等 -->
+      <footer>
+        <div v-for="item in footer" :key="item.label">
+          <div>
+            {{ item.label }}
+          </div>
+          <div>
+            {{ item.text }}
+          </div>
+        </div>
+      </footer>
+    </el-container>
+  </div>
+  <!-- 构建vue模板管理页面 -->
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        footer: [
+          {label:'小组成员', text: '张连博、刘敬超、袁晓楠、闫启慧、张瑞雪'},
+          {label:'指导教师', text: '白云飞老师'},
+          {label:'技术栈', text: 'html、css、javascript、vue'},
+          {label:'组件库', text: 'element-ui、艾恩小灰灰'},
+        ],
+        aside: [
+          {href: './概述.html', label: '概述'},
+          {href: './起源.html', label: '起源'},
+          {href: './典故.html', label: '典故'},
+          {href: './插画.html', label: '插画'},
+          {href: './美食.html', label: '美食'},
+          {href: './活动.html', label: '活动'},
+          {href: './诗歌.html', label: '诗歌'},
+          {href: './vlog.html', label: 'vlog'},
+        ],
+        title:['屈原投江','“涛神”伍子胥','曹娥救父投江','纪念介子推','勾践操练水师','白娘子现原形'],
+      },
+      methods: {
+        
+      },
+      components: {
+        
+      },
+      watch: {
+        
+      },
+      computed: {
+      
+      }
+    })
+  </script>
+  <script src="../js/典故.js"></script>
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>端午节诗歌</title>
+  <!-- 页面初始化 -->
+  <link rel="stylesheet" href="../css/base.css">
+  <!-- 共有的css -->
+  <link rel="stylesheet" href="../css/common.css">
+  <!-- 侧边导航栏的css -->
+  <link rel="stylesheet" href="../css/aside.css">
+  <!-- 诗歌页面的css -->
+  <link rel="stylesheet" href="../css/诗歌.css">
+  <!-- less编译工具 -->
+  <script src="https://cdn.jsdelivr.net/npm/less@4"></script>
+  <!-- 引入vue -->
+  <script src="https://unpkg.com/vue@2"></script>
+  <!-- 引入element-ui -->
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+</head>
+<body>
+  <!-- 整个盒子被vue控制，
+    vue是渐进式的，能让你学多少用多少，各个功能独立互不影响 -->
+  <div id="app">
+    <!-- 布局容器，构建整体布局 -->
+    <el-container>
+      <!-- 头部：制作导航栏 -->
+      <el-header>
+        <nav>
+          <div><a href="../../2107090422张瑞雪/index.html">春节</a></div>
+          <div><a href="../../2107090412袁晓楠/index.html">清明节</a></div>
+          <div class="active"><a href="#">端午节</a></div>
+		      <div><a href="../../2107090411刘敬超/index.html">中秋节</a></div>
+          <div><a href="../../index.html">其它节日</a></div>
+        </nav>
+      </el-header>
+      <!-- 主体内容：也是各个页面不同的地方 -->
+      <el-main>
+        <div class="left-box">
+          <ul>
+            <li v-for="(item,index) in aside" :class="index === 6 ? 'active' : ''">
+              <a :href="item.href">{{ item.label }}</a>
+            </li>
+            <hr>
+            <li class="end"><a href="/index.html">首页</a></li>
+            <li><a href="/views/登录.html">登录</a></li>
+          </ul>
+        </div>
+
+        <div class="right-box">
+          <div class="container">
+            <!-- --c为自定义属性（颜色值），可通过var函数进行调用 -->
+            <div style="--c: rgba(240, 128, 128, 0.5);">
+              <h1>竞渡诗</h1>
+              <h4>唐·卢肇</h4>
+              <p>石溪久住思端午，馆驿楼前看发机。</p>
+              <p>鼙鼓动时雷隐隐，兽头凌处雪微微。</p>
+              <p>冲波突出人齐譀，跃浪争先鸟退飞。</p>
+              <p>向道是龙刚不信，果然夺得锦标归。</p>
+            </div>
+            <div style="--c: rgba(32, 178, 171, 0.5);">
+              <h1>乙卯重五诗</h1>
+              <h4>南宋.陆游</h4>
+              <p>重五山村好，榴花忽已繁。</p>
+              <p>粽包分两髻，艾束著危冠。</p>
+              <p>旧俗方储药，羸躯亦点丹。</p>
+              <p>日斜吾事毕，一笑向杯盘。</p>
+            </div>
+            <div style="--c: rgba(255, 160, 122, 0.5);">
+              <h1>端午</h1>
+              <h4>唐·文秀</h4>
+              <p>节分端午自谁言，</p>
+              <p>万古传闻为屈原。</p>
+              <p>堪笑楚江空渺渺，</p>
+              <p>不能洗得直臣冤。</p>
+            </div>
+            <div style="--c: rgba(135, 206, 250, 0.5);">
+              <h1>浣溪沙端午</h1>
+              <h4>宋·苏轼</h4>
+              <p>轻汗微微透碧纨，明朝端午浴芳兰。</p>
+              <p>        流香涨腻满晴川。      </p>
+              <p>彩线轻缠红玉臂，小符斜挂绿云鬟。</p>
+              <p>        佳人相见一千年。      </p>
+            </div>
+            <div style="--c: rgba(240, 128, 128, 0.5);">
+              <h1>端午节赐衣</h1>
+              <h4>唐·杜甫</h4>
+              <p>宫衣亦有名，端午被恩荣。</p>
+              <p>细葛含风软，香罗叠雪轻。</p>
+              <p>自天题处湿，当暑著来清。</p>
+              <p>意内称长短，终身荷圣情。</p>
+            </div>
+
+          </div>
+        </div>
+      </el-main>
+      <!-- 尾部：小组信息，练习方式，鸣谢等 -->
+      <footer>
+        <div v-for="item in footer" :key="item.label">
+          <div>
+            {{ item.label }}
+          </div>
+          <div>
+            {{ item.text }}
+          </div>
+        </div>
+      </footer>
+    </el-container>
+  </div>
+  <!-- 构建vue模板管理页面 -->
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        footer: [
+          {label:'小组成员', text: '张连博、刘敬超、袁晓楠、闫启慧、张瑞雪'},
+          {label:'指导教师', text: '白云飞老师'},
+          {label:'技术栈', text: 'html、css、javascript、vue'},
+          {label:'组件库', text: 'element-ui、艾恩小灰灰'},
+        ],
+        aside: [
+          {href: './概述.html', label: '概述'},
+          {href: './起源.html', label: '起源'},
+          {href: './典故.html', label: '典故'},
+          {href: './插画.html', label: '插画'},
+          {href: './美食.html', label: '美食'},
+          {href: './活动.html', label: '活动'},
+          {href: './诗歌.html', label: '诗歌'},
+          {href: './vlog.html', label: 'vlog'},
+        ],
+      },
+      methods: {
+        
+      },
+      components: {
+        
+      },
+      watch: {
+        
+      },
+      computed: {
+      
+      }
+    })
+  </script>
+</body>
+</html>
